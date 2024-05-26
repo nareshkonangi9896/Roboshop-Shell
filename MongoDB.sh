@@ -35,9 +35,12 @@ else
     systemctl start mongod &>> $LOGFILE
     VALIDATE $? "start mongod"
 
-    sed -i "s/127.0.0.10.0.0.0/g" &>> $LOGFILE
-    VALIDATE $? "Update listen address from 127.0.0.1 to 0.0.0.0"
-
+    cat /etc/mongod.conf|grep 127.0.0.1 &>> $LOGFILE
+    if [ $1 -ne 0];
+    then
+        sed -i "s/127.0.0.1/0.0.0.0/g" /etc/mongod.conf&>> $LOGFILE
+        VALIDATE $? "Update listen address from 127.0.0.1 to 0.0.0.0"
+    fi
     systemctl restart mongod &>> $LOGFILE
     VALIDATE $? "Restart the service"
 fi
