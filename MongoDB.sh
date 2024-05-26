@@ -36,7 +36,7 @@ else
     VALIDATE $? "start mongod"
 
     cat /etc/mongod.conf|grep 127.0.0.1 &>> $LOGFILE
-    if [ $? -ne 0 ];
+    if [ $? -eq 0 ];
     then
         sed -i "s/127.0.0.1/0.0.0.0/g" /etc/mongod.conf&>> $LOGFILE
         VALIDATE $? "Update listen address from 127.0.0.1 to 0.0.0.0"
