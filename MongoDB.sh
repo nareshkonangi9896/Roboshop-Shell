@@ -24,20 +24,20 @@ then
     exit 1
 else
     cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
-    VALIDATE $1 "Setup the MongoDB repo file"
+    VALIDATE $? "Setup the MongoDB repo file"
 
     yum install mongodb-org -y &>> $LOGFILE
-    VALIDATE $1 "Install MongoDB"
+    VALIDATE $? "Install MongoDB"
 
     systemctl enable mongod &>> $LOGFILE
-    VALIDATE $1 "enable mongod"
+    VALIDATE $? "enable mongod"
 
     systemctl start mongod &>> $LOGFILE
-    VALIDATE $1 "start mongod"
+    VALIDATE $? "start mongod"
 
     sed -i "s/127.0.0.10.0.0.0/g" &>> $LOGFILE
-    VALIDATE $1 "Update listen address from 127.0.0.1 to 0.0.0.0"
+    VALIDATE $? "Update listen address from 127.0.0.1 to 0.0.0.0"
 
     systemctl restart mongod &>> $LOGFILE
-    VALIDATE $1 "Restart the service"
+    VALIDATE $? "Restart the service"
 fi
