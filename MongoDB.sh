@@ -11,9 +11,9 @@ Y="\e[33m"
 VALIDATE(){
     if [ $1 -eq 0 ];
     then
-        echo "$2 ... $G SUCCESS $N"
+        echo "$2 ...$G SUCCESS $N"
     else
-        echo "$2 ... $R ERROR $N"
+        echo "$2 ...$R ERROR $N"
         exit 1
     fi
 }
