@@ -47,6 +47,13 @@ else
     cd /app &>> $LOGFILE
     VALIDATE $? "Entering into app directory"
 
+    ls|grep catalogue.zip &>> $LOGFILE
+    if [ $? -eq 0 ]
+    then
+        rm -rf /tmp/catalogue.zip
+        VALIDATE $? "removing existing catalogue.zip"
+    fi
+
     unzip /tmp/catalogue.zip &>> $LOGFILE
     VALIDATE $? "unziping the application code"
 

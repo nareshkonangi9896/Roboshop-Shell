@@ -44,6 +44,13 @@ else
     cd /app &>> $LOGFILE
     VALIDATE $? "Entering into app directory"
 
+    ls|grep dispatch.zip &>> $LOGFILE
+    if [ $? -eq 0 ]
+    then
+        rm -rf /tmp/dispatch.zip
+        VALIDATE $? "removing existing dispatch.zip"
+    fi
+
     unzip /tmp/dispatch.zip &>> $LOGFILE
     VALIDATE $? "unziping the application code"
 

@@ -47,6 +47,13 @@ else
     cd /app &>> $LOGFILE
     VALIDATE $? "Entering into app directory"
 
+    ls|grep cart.zip &>> $LOGFILE
+    if [ $? -eq 0 ]
+    then
+        rm -rf /tmp/cart.zip
+        VALIDATE $? "removing existing cart.zip"
+    fi
+
     unzip /tmp/cart.zip &>> $LOGFILE
     VALIDATE $? "unziping the application code"
 
