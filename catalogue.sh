@@ -71,7 +71,7 @@ else
     yum install mongodb-org-shell -y &>> $LOGFILE
     VALIDATE $? "installing mongoDB client"
 
-    mongo --host MONGODB-SERVER-IPADDRESS </app/schema/catalogue.js &>> $LOGFILE
+    mongo --host mongo.nareshdevops.online </app/schema/catalogue.js &>> $LOGFILE
     VALIDATE $? "Load Schema into MonoDB"
     fi
 fi
