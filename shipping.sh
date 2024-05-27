@@ -44,7 +44,7 @@ else
     cd /app &>> $LOGFILE
     VALIDATE $? "Entering into app directory"
 
-    unzip /tmp/shipping.zip -y&>> $LOGFILE
+    unzip -o /tmp/shipping.zip &>> $LOGFILE
     VALIDATE $? "unziping the application code"
 
     mvn clean package&>> $LOGFILE

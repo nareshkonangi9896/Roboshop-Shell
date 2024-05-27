@@ -44,7 +44,7 @@ else
     cd /app &>> $LOGFILE
     VALIDATE $? "Entering into app directory"
 
-    unzip /tmp/dispatch.zip -y&>> $LOGFILE
+    unzip -o /tmp/dispatch.zip &>> $LOGFILE
     VALIDATE $? "unziping the application code"
 
     go mod init dispatch &>> $LOGFILE

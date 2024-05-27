@@ -47,7 +47,7 @@ else
     cd /app &>> $LOGFILE
     VALIDATE $? "Entering into app directory"
 
-    unzip /tmp/cart.zip -y&>> $LOGFILE
+    unzip -o /tmp/cart.zip &>> $LOGFILE
     VALIDATE $? "unziping the application code"
 
     npm install &>> $LOGFILE

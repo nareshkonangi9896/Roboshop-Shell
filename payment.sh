@@ -44,7 +44,7 @@ else
     cd /app &>> $LOGFILE
     VALIDATE $? "Entering into app directory"
 
-    unzip /tmp/payment.zip -y&>> $LOGFILE
+    unzip -o /tmp/payment.zip &>> $LOGFILE
     VALIDATE $? "unziping the application code"
 
     pip3.6 install -r requirements.txt &>> $LOGFILE

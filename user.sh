@@ -47,7 +47,7 @@ else
     cd /app &>> $LOGFILE
     VALIDATE $? "Entering into app directory"
 
-    unzip /tmp/user.zip -y&>> $LOGFILE
+    unzip -o /tmp/user.zip &>> $LOGFILE
     VALIDATE $? "unziping the application code"
 
     npm install &>> $LOGFILE
