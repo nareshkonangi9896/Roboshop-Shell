@@ -68,7 +68,7 @@ else
     yum install mysql -y &>> $LOGFILE
     VALIDATE $? "installing mysql client"
 
-    mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pRoboShop@1 < /app/schema/shipping.sql &>> $LOGFILE
+    mysql -h mysql.nareshdevops.online -uroot -pRoboShop@1 < /app/schema/shipping.sql &>> $LOGFILE
     VALIDATE $? "Load Schema into mySQL"
 
     systemctl restart shipping &>> $LOGFILE
