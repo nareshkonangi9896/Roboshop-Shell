@@ -26,7 +26,7 @@ else
     yum module disable mysql -y  &>> $LOGFILE
     VALIDATE $? "Disabling existing mysql in system"
 
-    cp mysql.repo /etc/yum.repos.d/mysql.repo  &>> $LOGFILE
+    cp mysql.repo /etc/yum.repos.d/  &>> $LOGFILE
     VALIDATE $? "Copying mysql repo"
 
     yum install mysql-community-server -y &>> $LOGFILE

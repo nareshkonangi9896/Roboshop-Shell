@@ -23,7 +23,7 @@ then
     echo -e "$R ERROR : Please run this script as a ROOT user $N"
     exit 1
 else
-    cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
+    cp mongo.repo /etc/yum.repos.d/ &>> $LOGFILE
     VALIDATE $? "Setup the MongoDB repo file"
 
     yum install mongodb-org -y &>> $LOGFILE

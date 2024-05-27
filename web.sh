@@ -44,7 +44,7 @@ else
     unzip /tmp/web.zip &>> $LOGFILE
     VALIDATE $? "unziping the application code"
 
-    cp /home/centos/Roboshop Shell/roboshop.conf /etc/nginx/default.d/roboshop.conf &>> $LOGFILE
+    cp /home/centos/Roboshop Shell/roboshop.conf /etc/nginx/default.d/ &>> $LOGFILE
     VALIDATE $? "creating roboshop.conf "
 
     systemctl restart nginx &>> $LOGFILE

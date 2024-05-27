@@ -65,7 +65,7 @@ else
     systemctl start catalogue &>> $LOGFILE
     VALIDATE $? "starting catalogue" &>> $LOGFILE
 
-    cp /home/centos/Roboshop Shell/mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
+    cp /home/centos/Roboshop Shell/mongo.repo /etc/yum.repos.d/ &>> $LOGFILE
     VALIDATE $? "Setup the MongoDB repo file"
 
     yum install mongodb-org-shell -y &>> $LOGFILE
