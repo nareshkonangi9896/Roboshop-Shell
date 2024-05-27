@@ -25,7 +25,7 @@ then
 else
 
     yum install nginx -y &>> $LOGFILE
-    VALIDATE $? "Install nodejs"
+    VALIDATE $? "Install nginx"
 
     systemctl enable nginx &>> $LOGFILE
     VALIDATE $? "enabling nginx"

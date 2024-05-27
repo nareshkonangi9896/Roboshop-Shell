@@ -38,8 +38,12 @@ else
     systemctl start rabbitmq-server &>> $LOGFILE
     VALIDATE $? "start rabbitmq"
 
-    rabbitmqctl add_user roboshop roboshop123 &>> $LOGFILE
-    VALIDATE $? "Adding Roboshop user"
+    sudo rabbitmqctl list_users|grep roboshop &>> $LOGFILE
+    if [ $? -ne 0 ]
+    then
+        rabbitmqctl add_user roboshop roboshop123 &>> $LOGFILE
+        VALIDATE $? "adding roboshop user for rabbitmq"
+    fi
 
     rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>> $LOGFILE
     VALIDATE $? "Giving permissions to roboshop user"
