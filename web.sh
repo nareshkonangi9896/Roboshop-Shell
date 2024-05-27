@@ -42,7 +42,7 @@ else
     cd /usr/share/nginx/html &>> $LOGFILE
     VALIDATE $? "Entering into html directory"
 
-    unzip /tmp/web.zip &>> $LOGFILE
+    unzip /tmp/web.zip -y&>> $LOGFILE
     VALIDATE $? "unziping the application code"
 
     cp /home/centos/Roboshop-Shell/roboshop.conf /etc/nginx/default.d/ &>> $LOGFILE
