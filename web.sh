@@ -31,9 +31,10 @@ else
     VALIDATE $? "enabling nginx"
 
     systemctl start nginx &>> $LOGFILE
-    VALIDATE $? "starting nginx" &>> $LOGFILE
+    VALIDATE $? "starting nginx"
 
-    rm -rf /usr/share/nginx/html/*
+    rm -rf /usr/share/nginx/html/* &>> $LOGFILE
+    VALIDATE $? "removing default content"
 
     curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip &>> $LOGFILE
     VALIDATE $? "Download the application code"
@@ -48,6 +49,6 @@ else
     VALIDATE $? "creating roboshop.conf "
 
     systemctl restart nginx &>> $LOGFILE
-    VALIDATE $? "restarting nginx" &>> $LOGFILE
+    VALIDATE $? "restarting nginx"
     fi
 fi
