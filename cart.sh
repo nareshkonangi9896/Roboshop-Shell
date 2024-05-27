@@ -64,6 +64,4 @@ else
 
     systemctl start cart &>> $LOGFILE
     VALIDATE $? "starting cart" &>> $LOGFILE
-
-    fi
 fi
