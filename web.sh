@@ -44,9 +44,6 @@ else
     unzip /tmp/web.zip &>> $LOGFILE
     VALIDATE $? "unziping the application code"
 
-    npm install &>> $LOGFILE
-    VALIDATE $? "installing dependencies"
-
     cp /home/centos/Roboshop Shell/roboshop.conf /etc/nginx/default.d/roboshop.conf &>> $LOGFILE
     VALIDATE $? "creating roboshop.conf "
 
