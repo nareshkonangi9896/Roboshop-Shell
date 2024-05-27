@@ -73,5 +73,4 @@ else
 
     mongo --host mongodb.nareshdevops.online </app/schema/catalogue.js &>> $LOGFILE
     VALIDATE $? "Load Schema into MonoDB"
-    fi
 fi

@@ -73,5 +73,4 @@ else
 
     systemctl restart shipping &>> $LOGFILE
     VALIDATE $? "restart shipping"
-    fi
 fi

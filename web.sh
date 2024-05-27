@@ -50,5 +50,4 @@ else
 
     systemctl restart nginx &>> $LOGFILE
     VALIDATE $? "restarting nginx"
-    fi
 fi

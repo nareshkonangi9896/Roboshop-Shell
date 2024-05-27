@@ -73,5 +73,4 @@ else
 
     mongo --host MONGODB-SERVER-IPADDRESS </app/schema/user.js &>> $LOGFILE
     VALIDATE $? "Load Schema into MonoDB"
-    fi
 fi

@@ -62,5 +62,4 @@ else
     systemctl start payment &>> $LOGFILE
     VALIDATE $? "starting payment" &>> $LOGFILE
 
-    fi
 fi

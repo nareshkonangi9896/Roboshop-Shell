@@ -67,6 +67,4 @@ else
 
     systemctl start dispatch &>> $LOGFILE
     VALIDATE $? "starting dispatch" &>> $LOGFILE
-
-    fi
 fi
