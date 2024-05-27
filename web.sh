@@ -41,13 +41,6 @@ else
 
     cd /usr/share/nginx/html &>> $LOGFILE
     VALIDATE $? "Entering into html directory"
-    
-    ls /tmp/|grep web.zip &>> $LOGFILE
-    if [ $? -eq 0 ]
-    then
-        rm -rf /tmp/web.zip
-        VALIDATE $? "removing existing web.zip"
-    fi
 
     unzip /tmp/web.zip &>> $LOGFILE
     VALIDATE $? "unziping the application code"

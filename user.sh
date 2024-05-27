@@ -47,13 +47,6 @@ else
     cd /app &>> $LOGFILE
     VALIDATE $? "Entering into app directory"
 
-    ls /tmp/|grep user.zip &>> $LOGFILE
-    if [ $? -eq 0 ]
-    then
-        rm -rf /tmp/user.zip
-        VALIDATE $? "removing existing user.zip"
-    fi
-
     unzip /tmp/user.zip &>> $LOGFILE
     VALIDATE $? "unziping the application code"
 

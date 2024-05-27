@@ -44,13 +44,6 @@ else
     cd /app &>> $LOGFILE
     VALIDATE $? "Entering into app directory"
 
-    ls /tmp/|grep payment.zip &>> $LOGFILE
-    if [ $? -eq 0 ]
-    then
-        rm -rf /tmp/payment.zip
-        VALIDATE $? "removing existing payment.zip"
-    fi
-
     unzip /tmp/payment.zip &>> $LOGFILE
     VALIDATE $? "unziping the application code"
 
