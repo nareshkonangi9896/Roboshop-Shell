@@ -47,7 +47,7 @@ else
     cd /app &>> $LOGFILE
     VALIDATE $? "Entering into app directory"
 
-    ls|grep cart.zip &>> $LOGFILE
+    ls /tmp/|grep cart.zip &>> $LOGFILE
     if [ $? -eq 0 ]
     then
         rm -rf /tmp/cart.zip

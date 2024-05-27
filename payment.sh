@@ -44,7 +44,7 @@ else
     cd /app &>> $LOGFILE
     VALIDATE $? "Entering into app directory"
 
-    ls|grep payment.zip &>> $LOGFILE
+    ls /tmp/|grep payment.zip &>> $LOGFILE
     if [ $? -eq 0 ]
     then
         rm -rf /tmp/payment.zip
