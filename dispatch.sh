@@ -47,9 +47,12 @@ else
     unzip -o /tmp/dispatch.zip &>> $LOGFILE
     VALIDATE $? "unziping the application code"
 
-    go mod init dispatch &>> $LOGFILE
-    VALIDATE $? "init dependencies"
-
+    ls /app/ | grep go.mod &>> $LOGFILE
+    if [ $? -ne 0 ]
+    then
+        go mod init dispatch &>> $LOGFILE
+        VALIDATE $? "init dependencies"
+    fi
     go get &>> $LOGFILE
     VALIDATE $? "get dependencies"
 
