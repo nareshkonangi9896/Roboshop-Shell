@@ -39,6 +39,13 @@ else
         VALIDATE $? "Update listen address from 127.0.0.1 to 0.0.0.0"
     fi
 
+    cat /etc/redis/redis.conf|grep 127.0.0.1 &>> $LOGFILE
+    if [ $? -eq 0 ];
+    then
+        sed -i "s/127.0.0.1/0.0.0.0/g" /etc/redis/redis.conf&>> $LOGFILE
+        VALIDATE $? "Update listen address from 127.0.0.1 to 0.0.0.0"
+    fi
+
     systemctl enable redis &>> $LOGFILE
     VALIDATE $? "enable redis"
 
