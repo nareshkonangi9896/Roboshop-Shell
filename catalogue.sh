@@ -53,7 +53,7 @@ else
     npm install &>> $LOGFILE
     VALIDATE $? "installing dependencies"
 
-    cp /home/centos/Roboshop Shell/catalogue.service /etc/systemd/system/catalogue.service &>> $LOGFILE
+    cp /home/centos/Roboshop-Shell/catalogue.service /etc/systemd/system/catalogue.service &>> $LOGFILE
     VALIDATE $? "creating catalogue.service"
 
     systemctl daemon-reload &>> $LOGFILE
@@ -65,7 +65,7 @@ else
     systemctl start catalogue &>> $LOGFILE
     VALIDATE $? "starting catalogue" &>> $LOGFILE
 
-    cp /home/centos/Roboshop Shell/mongo.repo /etc/yum.repos.d/ &>> $LOGFILE
+    cp /home/centos/Roboshop-Shell/mongo.repo /etc/yum.repos.d/ &>> $LOGFILE
     VALIDATE $? "Setup the MongoDB repo file"
 
     yum install mongodb-org-shell -y &>> $LOGFILE
