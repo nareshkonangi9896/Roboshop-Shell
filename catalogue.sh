@@ -48,7 +48,7 @@ else
     VALIDATE $? "Entering into app directory"
 
     ls /tmp/|grep catalogue.zip &>> $LOGFILE
-    if [ $? -eq 0 ]
+    if [ $? -ne 0 ]
     then
         rm -rf /tmp/catalogue.zip
         VALIDATE $? "removing existing catalogue.zip"
