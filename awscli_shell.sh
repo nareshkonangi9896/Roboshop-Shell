@@ -11,7 +11,7 @@ do
     IP_ADDRESS=$(aws ec2 run-instances --image-id $AMI_ID --instance-type t2.micro --security-group-ids $SECURTIY_ID --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]"| jq -r '.Instances[0].PrivateIpAddress')
     echo "created instance $i : $IP_ADDRESS"
 
-    aws route53 change-resource-record-sets --hosted-zone-id $HOSTED_ZONE --change-batch
+    aws route53 change-resource-record-sets --hosted-zone-id $HOSTED_ZONE
     {
         "Comment": "CREATE/DELETE/UPSERT a record ",
         "Changes": [{
