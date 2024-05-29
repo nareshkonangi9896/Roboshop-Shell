@@ -13,8 +13,15 @@ do
 
     aws route53 change-resource-record-sets --hosted-zone-id $HOSTED_ZONE
     {
-        "Comment": "CREATE/DELETE/UPSERT a record ",
-        "Changes": [{
-        "Action": "CREATE","ResourceRecordSet": {"Name": $i.$DOMAIN_NAME,"Type": "A","TTL": 1, "ResourceRecords": [{"Value":"$IP_ADDRESS"}]}}]
+            "Comment": "CREATE/DELETE/UPSERT a record ",
+            "Changes": [{
+            "Action": "CREATE",
+                        "ResourceRecordSet": {
+                                    "Name": "$i.$DOMAIN_NAME",
+                                    "Type": "A",
+                                    "TTL": 1,
+                                 "ResourceRecords": [{ "Value": "$IP_ADDRESS"}]
+                                            }
+                        }]
     }
 done
